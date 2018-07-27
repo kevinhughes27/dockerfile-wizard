@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/ut:ruby:2.5.1-node:10.7.0-browsers
+      - image: $DOCKER_USERNAME//$IMAGE_NAME:$IMAGE_TAG
         environment:
           <<: *image_config
 
@@ -85,7 +85,9 @@ workflows:
   dockerfile_wizard:
     jobs:
       - build:
+          context: org-global
 
       - test_image:
+          context: org-global
           requires:
             - build
