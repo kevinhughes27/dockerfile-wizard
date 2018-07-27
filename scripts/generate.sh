@@ -132,3 +132,8 @@ RUN apt-get -y install libgconf-2-4 \
   && mv chromedriver /usr/local/bin/chromedriver \
   && chmod +x /usr/local/bin/chromedriver"
 fi
+
+echo "# install bundler and yarn
+RUN gem install bundler
+RUN npm install -g yarn
+"
